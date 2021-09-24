@@ -1,48 +1,45 @@
 @font-face {
-    font-family: miriad-bold;
+    font-family: Myriad; 
     src: url(./font/MyriadPro-Bold.otf);
 }
-h1, h2, h3, h4, h5, h6, p, form{ /* Foprmatação da fonte */
-    font-family: miriad-bold;
-    font-size: 14pt;
-    color: #495F3F;
+h1, h2, h3, h4, h5, h6, p{
+    font-family: Myriad;
+    color: rgb(73, 95, 63);
 }
-/* ======================================================= */
-
-header{ /* Quadro Cabeçalho */
-    width: 100vw;
-    height: 30vh;
-    background-image: url("./img/bg-title.png");
-    
+h1{
+    position: relative;
+    font-size: 2em;
+}
+body{
+    height: 100vh;
+    position: relative;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(73,95,63)
 }
-.item-header{ /* Logo e dados da empresa distribuidos */
-    margin: 20px;
-}
-.valor{ /* quadro com Valor total */
-    height: 90%;
-    align-self: flex-end;
-}
-footer{ /* Rodapé */
-    width: 100vw;
-    height: 17vh;
+form{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    background-color: rgb(243, 253, 228);
+    border-radius: 10px;
     text-align: center;
 
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
-footer img{ /* Assinatura com linha */
-    width: 50%;
-}
-main{
+#fields{
+    height: 50%;
     margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
-main form{
-    position: relative;
-    display: inline;
-    left: 100px;
-    line-height: 40px;
+#fields div{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
-

@@ -1,33 +1,44 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recibo Automático</title>
-    <link rel="stylesheet" href="./reset.css">
-    <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-    <header>    
-        <img class="item-header" src="./img/logo.svg"> <!--Logo da empresa -->
-        <img class="item-header" src="./img/cnpj-dados.svg"> <!--Dados da Empresa-->
-        <img class="valor" src="./img/valor.svg">
-    </header>
-    
-    <main>
-        <form action="./app.js">
-            Recebemos de <input type="text" size="97" placeholder="nome cliente"><br>
-            a quantia de <input type="text" size="100"><br>
-            referente a <input type="file"><br>
-            pelo que firmamos o presente recibo.
-        </form>
-    </main>
-    
-    <footer>
-        <p>Fortaleza, _____ de _______________ de _____</p> <!-- Data -->
-        <p><img src="./img/assinatura.png"> <br> Assinatura</p> <!-- Assinatura -->
-    </footer>
 
-</body>
-</html>
+<link rel="stylesheet" href="./reset.css">
+<link rel="stylesheet" href="./style.css">
+
+<body>
+    <div>
+        <form>
+            <h1>Recibo Automático 1.0</h1>
+            <div id="fields">
+               <div>
+                    <p>Cliente:</p>
+                    <input id="client" type="text">
+               </div>
+               <div>
+                   <p>Valor:</p>
+                   <input id="num" type="text" >
+                </div>          
+                <div>
+                    <p>Referente a</p>
+                    <input id="refText" type="text">
+                    <input id="refImg" type="file">
+                </div>                 
+            </div>
+ 
+            <div id="buttons">
+                <button id="reset" type="reset">Limpar Campos</button>
+                <button id="render" >Gerar Recibo</button>
+            </div>
+         </form>
+         <main></main>
+     </div>
+ </body>
+
+ <script src="./app.js"></script>
+ </html>
+            
