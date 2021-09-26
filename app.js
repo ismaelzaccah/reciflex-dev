@@ -25,26 +25,51 @@ String.prototype.extenso = function(c){
 	return r.join(e);
 }
 
-
-
 //Fim do codigo de Terceiros--
 
 
 
 
 //Campos Digitaveis  
-var client = document.querySelector("#client")
-var num = document.querySelector("#num")
-var refText = document.querySelector("#refText")
-var refImg = document.querySelector("#refImg")
-var contentMain = document.querySelector("body div main")
-//Botões Gerar e Limpar
+var clientField = document.querySelector("#clientField")
+var numField = document.querySelector("#numField")
+var refTextField = document.querySelector("#refTextField")
+//Botãos Gerar
 var buttonRender = document.querySelector("#render")
-var buttonReset = document.querySelector("#reset")
+//Tags que receberão os dados ao renderizar
+var clientWrite = document.querySelector("#clientWrite")
+var refTextWrite = document.querySelector("#refTextWrite")
+var numExtWrite = document.querySelector("#numExtWrite")
+var numWrite = document.querySelector("#numWrite")
+
 
 buttonRender.addEventListener("click", (event)=>{
-    event.preventDefault()
+	event.preventDefault()
+	
+	var client = clientField.value.trim()
+	var refText = refTextField.value.trim()
+	var num = numField.value.trim()
+	
+	//trata e converte o valor para extenso
+	num = num.replace(".", ",")
+	var numExt = num.extenso(currency = true)
+	num = "R$ " + num
 
-    console.log(num.value.extenso(currency = true))
+	writeInTag(client, clientWrite)	
+	writeInTag(refText, refTextWrite)
+	writeInTag(num, numWrite)
+	writeInTag(numExt, numExtWrite)
+	
+
+	console.log(client)
+	console.log(num)
+	console.log(refText)
+	console.log(numExt)
+
 })
 
+function writeInTag(tagLoad,tagTarget) {
+	let text = document.createTextNode(tagLoad)
+	tagTarget.appendChild(text)
+	
+}

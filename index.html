@@ -11,33 +11,60 @@
 <link rel="stylesheet" href="./style.css">
 
 <body>
-    <div>
-        <form>
-            <h1>Recibo Automático 1.0</h1>
-            <div id="fields">
-               <div>
-                    <p>Cliente:</p>
-                    <input id="client" type="text">
-               </div>
-               <div>
-                   <p>Valor:</p>
-                   <input id="num" type="text" >
-                </div>          
-                <div>
-                    <p>Referente a</p>
-                    <input id="refText" type="text">
-                    <input id="refImg" type="file">
-                </div>                 
+    <form>
+        <h1>e-Recibo 1.0</h1>
+        <div class="fields">
+            <div>
+                <p><b>Cliente:</b></p>
+                <input id="clientField" type="text">
             </div>
- 
-            <div id="buttons">
-                <button id="reset" type="reset">Limpar Campos</button>
-                <button id="render" >Gerar Recibo</button>
+            <div>
+                <p><b>Valor:</b></p>
+                <input id="numField" type="text" >
+            </div>          
+            <div>
+                <p><b>Referente a</b></p>
+                <textarea id="refTextField" cols="30" rows="15"></textarea>
+                <!-- <input id="refImg" type="file"> -->
+            </div>                 
+        </div>
+
+        <div class="buttons">
+            <button type="reset">Limpar Campos</button>
+            <button id="render" >Gerar Recibo</button>
+        </div>
+    </form>
+        
+    <main class="of">
+        
+        <a class="developer" target="_blank" href="https://github.com/ismaelzaccah">Documento Gerado por eRecibo 1.0 - Desenvolvido por Ismael Zaccah</a>
+                  
+        <div class="header">
+            <img class="logo" src="./img/logo.svg">
+            <div class="company">
+                <p>CN GRÁFICA - 21.599.019/0001-76</p>
+                <p>85 3047.1305 / 9 8866.5835</p>
+                <p>Av. Desembargador Gonzaga 531 - Loja 04</p>
+                <p>Cidade dos Funcionários - Fortaleza - CE</p>
             </div>
-         </form>
-         <main></main>
-     </div>
- </body>
+            <h1 id="numWrite"></h1> 
+        </div>
+        
+        <h1>RECIBO</h1>
+        
+        <p class="content">Recebemos de <b id="clientWrite"></b> a quantia de <b id="numExtWrite"></b> referente a <b id="refTextWrite"></b> pelo que firmamos o presente recibo.</p>
+        
+        <div class="footer">
+            <p>Fortaleza-CE - 00/00/2021</p>
+            <div class="signature">
+                <img src="./img/signature.jpg">
+                <p>Assinatura</p>
+            </div>
+            
+        </div>
+    </main>
+
+</body>
 
  <script src="./app.js"></script>
  </html>
