@@ -12,7 +12,10 @@
 
 <body>
     <form>
-        <h1>e-Recibo 1.0</h1>
+        <a class="title" target="_blank" href="https://github.com/ismaelzaccah/e-Recibo-1.0"><h1>e-Recibo 1.0</h1>
+            <p>Desenvolvido por Ismael Zaccah</p></a>
+        
+        
         <div class="fields">
             <div>
                 <p><b>Cliente:</b></p>
@@ -35,9 +38,9 @@
         </div>
     </form>
         
-    <main class="of">
+    <main class="off">
         
-        <a class="developer" target="_blank" href="https://github.com/ismaelzaccah">Documento Gerado por eRecibo 1.0 - Desenvolvido por Ismael Zaccah</a>
+        <a class="developer" target="_blank" href="https://github.com/ismaelzaccah/e-Recibo-1.0">Documento Gerado por e-Recibo 1.0 - Desenvolvido por Ismael Zaccah</a>
                   
         <div class="header">
             <img class="logo" src="./img/logo.svg">
@@ -47,21 +50,26 @@
                 <p>Av. Desembargador Gonzaga 531 - Loja 04</p>
                 <p>Cidade dos Funcionários - Fortaleza - CE</p>
             </div>
-            <h1 id="numWrite"></h1> 
+            <h1><b id="numWrite"></b></h1> 
         </div>
         
-        <h1>RECIBO</h1>
+        <h1><b>RECIBO</b></h1>
         
         <p class="content">Recebemos de <b id="clientWrite"></b> a quantia de <b id="numExtWrite"></b> referente a <b id="refTextWrite"></b> pelo que firmamos o presente recibo.</p>
         
         <div class="footer">
-            <p>Fortaleza-CE - 00/00/2021</p>
+            <p id="today"></p>
             <div class="signature">
                 <img src="./img/signature.jpg">
                 <p>Assinatura</p>
             </div>
-            
         </div>
+
+        <div class="printOff">
+            <button id="createNew">Criar Novo</button>
+            <button id="print">Imprimir</button>
+        </div>
+
     </main>
 
 </body>

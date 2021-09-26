@@ -6,16 +6,16 @@
     font-family: Myriad; 
     src: url(./font/MyriadPro-Regular.otf);
 }
-@page {
-    size: A4;
-    margin: auto;
-}
 h1, h2, h3, h4, h5, h6, p, a{
-    font-family: MyriadBold;
+    font-family: Myriad;
     text-decoration: none;
     color: rgb(73, 95, 63);
 }
+b{font-family: MyriadBold;}
 h1{font-size: 2em;}
+.title{text-align: center;}
+.title h1{font-family: MyriadBold;}
+.title p{font-size: 0.7em;}
 body{
     display: flex;
     justify-content: center;
@@ -45,21 +45,14 @@ form{
     justify-content: space-around;
 }
 
-
-/* =====Renderização===== */
-
-.off{display: none;}
-
-p, a{font-family: Myriad;}
-b{font-family: MyriadBold;}
-.bodyPrint{align-items: flex-start;}
+/* ==========Renderização========== */
 
 /* --Cabeçalho-- */
 
 .developer{
     background-color:rgb(243, 253, 228);
     font-size: 0.6em;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
     padding: 1%;
 }
 .header{
@@ -77,8 +70,8 @@ b{font-family: MyriadBold;}
 .company{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: space-around;
+    align-items: flex-start;
 }
 .header div{align-content: space;}
 .header p{font-size: 0.8em;}
@@ -107,18 +100,20 @@ main h1{
     margin-left: 10%;
     margin-right: 10%;
     
-    padding-bottom: 5%;
+    padding-bottom: 3%;
 }
 
 /* --Rodapé-- */
 
 .footer{
+    margin-left: 10%;
+    margin-right: 10%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items:flex-end;
 }
-.footer p{font: 1.5em MyriadBold;}
+.footer p{font: 1.5em Myriad;}
 
 .signature{
     align-items: center;
@@ -127,4 +122,17 @@ main h1{
 .signature img{width: 150px;}
 .signature p{
     width: 9em;
-    border-top: solid rgb(73, 95, 63) 0.6mm;}
+    border-top: solid rgb(73, 95, 63) 0.6mm;
+}
+
+/* --Impressão-- */
+
+.off{display: none;}
+
+@media print{
+    .printOff{display: none;}
+    .developer{margin-top: 2%;}
+@page {
+    size: A4;
+    margin: auto;
+}

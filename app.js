@@ -29,23 +29,44 @@ String.prototype.extenso = function(c){
 
 
 
-
+//Tela de Campos, Tela de impressão
+var screen          = document.querySelector("form")
+var printer         = document.querySelector("main")
 //Campos Digitaveis  
-var clientField = document.querySelector("#clientField")
-var numField = document.querySelector("#numField")
-var refTextField = document.querySelector("#refTextField")
-//Botãos Gerar
-var buttonRender = document.querySelector("#render")
+var clientField     = document.querySelector("#clientField")
+var numField        = document.querySelector("#numField")
+var refTextField    = document.querySelector("#refTextField")
+//Botões
+var buttonRender    = document.querySelector("#render")
+var buttonCreateNew = document.querySelector("#createNew")
+var buttonPrint     = document.querySelector("#print")
 //Tags que receberão os dados ao renderizar
-var clientWrite = document.querySelector("#clientWrite")
-var refTextWrite = document.querySelector("#refTextWrite")
-var numExtWrite = document.querySelector("#numExtWrite")
-var numWrite = document.querySelector("#numWrite")
+var dateWrite       = document.querySelector("#today")
+var clientWrite     = document.querySelector("#clientWrite")
+var refTextWrite    = document.querySelector("#refTextWrite")
+var numExtWrite     = document.querySelector("#numExtWrite")
+var numWrite        = document.querySelector("#numWrite")
+//Data de hoje Automática 
+var today           = new Date()
+var monthExt        = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+var date            = `Fortaleza, ${today.getDate()} de ${monthExt[today.getMonth()]} de ${today.getFullYear()}`
 
+//Função para escrever os dados tratados nas tags
+function writeInTag(tagLoad,tagTarget) {
+	let text = document.createTextNode(tagLoad)
+	tagTarget.appendChild(text)
+}
 
+buttonCreateNew.addEventListener("click", ()=>{
+	window.location.reload()})
+	buttonPrint.addEventListener("click", ()=>{
+		window.print()})
+		
+//Ação do botão --Gerar Recibo-- da tela de Campos
 buttonRender.addEventListener("click", (event)=>{
 	event.preventDefault()
 	
+	//Remove epaços do do inicio/fim da string
 	var client = clientField.value.trim()
 	var refText = refTextField.value.trim()
 	var num = numField.value.trim()
@@ -59,17 +80,8 @@ buttonRender.addEventListener("click", (event)=>{
 	writeInTag(refText, refTextWrite)
 	writeInTag(num, numWrite)
 	writeInTag(numExt, numExtWrite)
+	writeInTag(date, dateWrite)
 	
-
-	console.log(client)
-	console.log(num)
-	console.log(refText)
-	console.log(numExt)
-
+	screen.classList.add("off")
+	printer.classList.remove("off")
 })
-
-function writeInTag(tagLoad,tagTarget) {
-	let text = document.createTextNode(tagLoad)
-	tagTarget.appendChild(text)
-	
-}
