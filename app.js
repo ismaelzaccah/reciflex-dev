@@ -24,32 +24,35 @@ String.prototype.extenso = function(c){
 	}
 	return r.join(e);
 }
-
 //Fim do codigo de Terceiros--
 
 
 
 //Tela de Campos, Tela de impressão
-var screen          = document.querySelector("form")
-var printer         = document.querySelector("main")
+const screen          = document.querySelector("form")
+const printer         = document.querySelector("main")
 //Campos Digitaveis  
-var clientField     = document.querySelector("#clientField")
-var numField        = document.querySelector("#numField")
-var refTextField    = document.querySelector("#refTextField")
+const clientField     = document.querySelector("#clientField")
+const numField        = document.querySelector("#numField")
+const refTextField    = document.querySelector("#refTextField")
+const todayCheckbox	  = document.querySelector("#todayCheckbox")
+const dateField		  = document.querySelector("#dateField")
 //Botões
-var buttonRender    = document.querySelector("#render")
-var buttonCreateNew = document.querySelector("#createNew")
-var buttonPrint     = document.querySelector("#print")
+const buttonRender    = document.querySelector("#render")
+const buttonCreateNew = document.querySelector("#createNew")
+const buttonPrint     = document.querySelector("#print")
 //Tags que receberão os dados ao renderizar
-var dateWrite       = document.querySelector("#today")
-var clientWrite     = document.querySelector("#clientWrite")
-var refTextWrite    = document.querySelector("#refTextWrite")
-var numExtWrite     = document.querySelector("#numExtWrite")
-var numWrite        = document.querySelector("#numWrite")
-//Data de hoje Automática 
-var today           = new Date()
-var monthExt        = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
-var date            = `Fortaleza, ${today.getDate()} de ${monthExt[today.getMonth()]} de ${today.getFullYear()}`
+const clientWrite     = document.querySelector("#clientWrite")
+const refTextWrite    = document.querySelector("#refTextWrite")
+const numExtWrite     = document.querySelector("#numExtWrite")
+const numWrite        = document.querySelector("#numWrite")
+const dateWrite       = document.querySelector("#dateWrite")
+const signatureWrite = document.querySelector("#signatureWrite")
+//Botões de --Imprimir-- e --Criar Novo-- da tela renderizada
+buttonCreateNew.addEventListener("click", ()=>{
+	window.location.reload()})
+buttonPrint.addEventListener("click", ()=>{
+		window.print()})
 
 //Função para escrever os dados tratados nas tags
 function writeInTag(tagLoad,tagTarget) {
@@ -57,15 +60,43 @@ function writeInTag(tagLoad,tagTarget) {
 	tagTarget.appendChild(text)
 }
 
-buttonCreateNew.addEventListener("click", ()=>{
-	window.location.reload()})
-	buttonPrint.addEventListener("click", ()=>{
-		window.print()})
+//Habilita o campo de DATA para entrada manual
+todayCheckbox.addEventListener("change", ()=>{
+	if (todayCheckbox.checked){
+		dateField.disabled = true
+	} else {
+		dateField.disabled = false
+	}
+})
+
+//Data de hoje Automática 
+const today           = new Date()
+const monthExt        = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+var date 
 		
 //Ação do botão --Gerar Recibo-- da tela de Campos
 buttonRender.addEventListener("click", (event)=>{
 	event.preventDefault()
-	
+
+	//Campo de data
+	if (todayCheckbox.checked){
+		date = `Fortaleza, ${today.getDate()} de ${monthExt[today.getMonth()]} de ${today.getFullYear()}`
+	} else {
+		date = dateField.value.split("-")
+		date[0] = parseInt(date[0], 10) //Ano YYYY
+		date[1] = parseInt(date[1], 10) //Mês MM
+		date[2] = parseInt(date[2], 10) //Dia DD
+		date = `Fortaleza, ${date[2]} de ${monthExt[--date[1]]} de ${date[0]}`
+	}
+	//Assinatura Variavel
+	var signature = document.querySelector("input[name=signature]:checked")
+	if (signature == null){
+			signatureWrite.src = ""
+			console.log(signature)
+	} else {
+		signatureWrite.src = `./img/signature${signature.value}.jpg`
+		console.log(signature)
+	}
 	//Remove epaços do do inicio/fim da string
 	var client = clientField.value.trim()
 	var refText = refTextField.value.trim()

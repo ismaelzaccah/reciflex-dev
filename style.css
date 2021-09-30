@@ -6,16 +6,36 @@
     font-family: Myriad; 
     src: url(./font/MyriadPro-Regular.otf);
 }
-h1, h2, h3, h4, h5, h6, p, a{
+.reciflexLogo{
+    width: 150px;
+    height: 300px;
+    fill: violet;
+}
+h1, h2, h3, h4, h5, h6, p, a, b, label{
     font-family: Myriad;
     text-decoration: none;
     color: rgb(73, 95, 63);
 }
+h1{
+    font-family: MyriadBold;
+    font-size: 2em;
+}
 b{font-family: MyriadBold;}
-h1{font-size: 2em;}
 .title{text-align: center;}
-.title h1{font-family: MyriadBold;}
+.title img{width: 180px;}
+.title span{position: absolute;}
 .title p{font-size: 0.7em;}
+.flexColumn{
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+.flexRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+}
 body{
     display: flex;
     justify-content: center;
@@ -23,29 +43,26 @@ body{
 }
 form{
     width: 400px;
-    height: 500px;
+    height: 570px;
     background-color: rgb(243, 253, 228);
     border-radius: 10px;
-
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 }
 .fields{
     width: 95%;
     height: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
 }
-.fields div{
-    display: flex;
-    flex-direction:column;
-    justify-content: space-around;
-}
+.fields p{font-family: MyriadBold;}
 
 /* ==========Renderização========== */
+
+.printMargin{
+    margin-left: 10%;
+    margin-right: 10%;
+}
 
 /* --Cabeçalho-- */
 
@@ -55,84 +72,57 @@ form{
     margin-bottom: 2%;
     padding: 1%;
 }
-.header{
-    margin-bottom: 3%;
-    margin-left: 10%;
-    margin-right: 10%;
-    display: flex;
-    flex-direction:row;
-    justify-content: space-between;
-}
 .logo{
     max-width: 130px;
-    max-height: 130px;
+    max-height: 140px;
 }
 .company{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: flex-start;
 }
-.header div{align-content: space;}
-.header p{font-size: 0.8em;}
+.company p{font-size: 0.8em;}
 
 /* --Conteudo-- */
 
 main{
-    margin: 0px auto;
-    padding-bottom: 5%;
     max-width: 960px;
     background-color: white;
     text-align: center;
-    
-    display: flex;
-    flex-direction: column;
-    
 }
 main h1{
-    margin-top: 2%;
-    margin-bottom: 2%;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
 .content{
     text-indent: 2em;
-    font-size: 1.5em;
+    font-size: 1.4em;
     text-align: justify;
-    margin-left: 10%;
-    margin-right: 10%;
-    
-    padding-bottom: 3%;
 }
 
 /* --Rodapé-- */
 
 .footer{
-    margin-left: 10%;
-    margin-right: 10%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    height: 5em;
+    justify-content: space-around;
     align-items:flex-end;
 }
-.footer p{font: 1.5em Myriad;}
-
+.footer p{font: 1em Myriad;}
+.printButtons{margin: 3%;}
 .signature{
     align-items: center;
     text-align: center;
 }
-.signature img{width: 150px;}
+.signature img{width: 160px;}
 .signature p{
-    width: 9em;
-    border-top: solid rgb(73, 95, 63) 0.6mm;
+    width: 12em;
+    border-top: solid rgb(73, 95, 63) 0.4mm;
 }
 
 /* --Impressão-- */
 
 .off{display: none;}
 
+@page {size: A4;}
 @media print{
     .printOff{display: none;}
     .developer{margin-top: 2%;}
-@page {
-    size: A4;
-    margin: auto;
-}
